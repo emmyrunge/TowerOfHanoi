@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class Tower_of_Hanoi
+{
+
+public static int count = 0;
+
+public static void Permute_Arrange(int n, char x, char ax, char to)
+{
+//set if statement
+if (n == 1) {
+//increament in count by 1
+++count;
+}
+//otherwise
+else
+{
+Permute_Arrange(n - 1, x, to, ax);
+++count;
+Permute_Arrange(n - 1, ax, x, to);
+}
+}
+//define main function
+public static void main(String[] args)
+{
+//set scanner type object
+Scanner sc = new Scanner(System.in);
+//print message
+System.out.println("Enter less than 0 to exit");
+//set the while infinite loop
+while(true)
+{
+//print message
+System.out.print("Enter the number of Disks: ");
+//get input from the user
+int num_of_disk = sc.nextInt();
+//set the if statement to break the loop
+if(num_of_disk<0)
+{
+//exit from the loop
+System.exit(0);
+}
+//call the function
+Permute_Arrange(num_of_disk, 'A', 'B', 'C');
+//print message with output
+System.out.println("Total number of Disc Moves is: " + count);
+count = 0;
+}
+}
+}
+
+
+Output:
+Enter less than 0 to exit
+Enter the number of Disks: 4
+Total number of Disc Moves is: 15
+Enter the number of Disks: 7
+Total number of Disc Moves is: 127
+Enter the number of Disks: -1
+Explanation:
+Here, we define a class named "Tower_of_Hanoi"
+
+Set the integer data type static variable "count" and initialize the value to 0.
+Define void data type static function "Permute_Arrange" and pass three characters
+type arguments "x", "ax", and to and one integer type argument "n", inside it we set
+ if condition to increment in the count variable otherwise call the function.
+Finally, we define the main function to get input from the user and pass the argument
+list in function and call the function.
+Advertisement
